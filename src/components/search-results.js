@@ -10,7 +10,7 @@ class SearchResults extends Component {
     
     render() {
         const listItems = this.props.results.map((entry, i) => 
-            <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body)} index={i} onStar={this.props.onStaring} />
+            <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body)} favorite={entry.starred} index={entry.index} onStar={this.props.onStaring} />
         );
         return (
             <div>

@@ -26,16 +26,21 @@ class App extends Component {
     axios.get('https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=700')
     .then((res) => {
       let data = res.data;
-      for ()
+      for (let i = 0; i < data.length; i++) {
+        data[i].index = i;
+      }
       this.setState({
-        data: res.data,
+        data,
       });
     });
   }
 
   handleStaring (index) {
-    console.log(index);
-    let temp = this.state.data
+    let temp = this.state.data;
+    temp[index].starred = (temp[index].starred) ? false : true;
+    this.setState({
+      data: temp
+    })
   }
 
   handleSearch(query) {
@@ -58,7 +63,7 @@ class App extends Component {
           <Search onSearch={this.handleSearch} />
           <SearchResults results={this.state.search_results} onStaring={this.handleStaring} />
         </div>
-        <Favorites favorites={this.state.data} onStaring={this.handleStaring} />
+        <Favorites favorites={this.state.data.filter((item) => {return item.starred})} onStaring={this.handleStaring} />
       </div>
     );
   }

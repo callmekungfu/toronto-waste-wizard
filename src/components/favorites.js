@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 
@@ -10,7 +9,7 @@ const decoder = new Entities();
 class Favorites extends Component {
     render() {
         const listItems = this.props.favorites.map((entry, i) => 
-        <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body) } favorite index={i} onStar={this.props.onStaring} />
+        <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body) } favorite={entry.starred} index={entry.index} onStar={this.props.onStaring} />
     );
         return (
             <div className="favorites">
