@@ -57,7 +57,7 @@ td {
   color: #999;
   font-size: 1.2em;
   cursor: pointer;
-  transition: all 0.2 ease;
+  transition: all 0.2s ease;
 }
 
 .star-btn:hover {
@@ -71,6 +71,10 @@ td {
 .favorites-header {
   color: #23965E;
   padding: 15px 0;
+}
+
+.favorites-header h2 {
+  margin: 0;
 }
 
 .favorite {
