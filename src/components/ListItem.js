@@ -1,17 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ListItem = (props) => (
+const ListItem = props => (
     <tr>
         <td>
-            <button className={'star-btn ' + ((props.favorite) ? 'favorite' : '')} onClick={(e) => props.onStar(props.index)}>
+            <button className={`star-btn ${((props.favorite) ? 'favorite' : '')}`} onClick={() => props.onStar(props.index)}>
                 <FontAwesomeIcon icon="star" />
             </button>
         </td>
         <td>
             {props.title}
         </td>
-        <td dangerouslySetInnerHTML={{__html: props.body}}></td>
+        <td dangerouslySetInnerHTML={{ __html: props.body }}></td>
     </tr>
 );
 

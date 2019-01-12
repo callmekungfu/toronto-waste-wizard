@@ -4,12 +4,12 @@ import { faSearch, faStar } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import Search from './components/search';
-import SearchResults from './components/search-results'
+import SearchResults from './components/search-results';
 
 import './App.css';
 import Favorites from './components/favorites';
 
-library.add([faSearch,faStar]);
+library.add([faSearch, faStar]);
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +25,8 @@ class App extends Component {
   componentDidMount() {
     axios.get('https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=700')
     .then((res) => {
-      let data = res.data;
+      const { data } = res;
+      // eslint-disable-next-line
       for (let i = 0; i < data.length; i++) {
         data[i].index = i;
       }
@@ -35,22 +36,20 @@ class App extends Component {
     });
   }
 
-  handleStaring (index) {
-    let temp = this.state.data;
-    temp[index].starred = (temp[index].starred) ? false : true;
+  handleStaring(index) {
+    const temp = this.state.data;
+    temp[index].starred = !(temp[index].starred);
     this.setState({
-      data: temp
-    })
+      data: temp,
+    });
   }
 
   handleSearch(query) {
-    query = query.replace(/\s/g, '').toLowerCase();
-    const results = this.state.data.filter((element) => {
-      return element.keywords.indexOf(query) !== -1;
-    });
+    const tempQuery = query.replace(/\s/g, '').toLowerCase();
+    const results = this.state.data.filter(element => element.keywords.indexOf(tempQuery) !== -1);
     this.setState({
-      search_results: results
-    })
+      search_results: results,
+    });
   }
 
   render() {
@@ -63,7 +62,7 @@ class App extends Component {
           <Search onSearch={this.handleSearch} />
           <SearchResults results={this.state.search_results} onStaring={this.handleStaring} />
         </div>
-        <Favorites favorites={this.state.data.filter((item) => {return item.starred})} onStaring={this.handleStaring} />
+        <Favorites favorites={this.state.data.filter(item => item.starred)} onStaring={this.handleStaring} />
       </div>
     );
   }

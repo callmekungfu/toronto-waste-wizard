@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+/* Container Styling */
+
 header {
   padding: 30px 0;
   width: 100%;
@@ -14,6 +16,8 @@ header {
   width: 98%;
   margin: 0 auto;
 }
+
+/* Search Form Styling */
 
 form {
   padding: 15px 0;
@@ -43,6 +47,8 @@ button[type="submit"] {
   border-radius: 2px
 }
 
+/* Table Styling */
+
 table {
   width: 100%;
 }
@@ -50,6 +56,8 @@ table {
 td {
   padding: 10px;
 }
+
+/* Star Button Style */
 
 .star-btn {
   background: none;
@@ -63,6 +71,8 @@ td {
 .star-btn:hover {
   color: rgb(55, 70, 54);
 }
+
+/* Favorites Component */
 
 .favorites {
   background: #F7FEFA;

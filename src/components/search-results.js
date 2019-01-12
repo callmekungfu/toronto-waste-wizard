@@ -7,11 +7,8 @@ const Entities = require('html-entities').AllHtmlEntities;
 const decoder = new Entities();
 
 class SearchResults extends Component {
-    
     render() {
-        const listItems = this.props.results.map((entry, i) => 
-            <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body)} favorite={entry.starred} index={entry.index} onStar={this.props.onStaring} />
-        );
+        const listItems = this.props.results.map((entry, i) => <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body)} favorite={entry.starred} index={entry.index} onStar={this.props.onStaring} />);
         return (
             <div>
                 <table>
@@ -26,6 +23,6 @@ class SearchResults extends Component {
 
 SearchResults.propTypes = {
     results: PropTypes.array,
-}
+};
 
 export default SearchResults;

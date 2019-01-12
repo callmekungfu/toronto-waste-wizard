@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 
 const Entities = require('html-entities').AllHtmlEntities;
-
 const decoder = new Entities();
 
 class Favorites extends Component {
     render() {
-        const listItems = this.props.favorites.map((entry, i) => 
-        <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body) } favorite={entry.starred} index={entry.index} onStar={this.props.onStaring} />
-    );
+        const listItems = this.props.favorites.map((entry, i) => <ListItem key={i.toString()} title={entry.title} body={decoder.decode(entry.body) } favorite={entry.starred} index={entry.index} onStar={this.props.onStaring} />);
         return (
             <div className="favorites">
                 <div className="container">
@@ -27,5 +24,10 @@ class Favorites extends Component {
         );
     }
 }
+
+Favorites.propTypes = {
+    favorites: PropTypes.array,
+    onStaring: PropTypes.func,
+};
 
 export default Favorites;
