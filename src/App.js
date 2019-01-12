@@ -7,6 +7,7 @@ import Search from './components/search';
 import SearchResults from './components/search-results';
 
 import './App.css';
+import './index.css';
 import Favorites from './components/favorites';
 
 library.add([faSearch, faStar]);
