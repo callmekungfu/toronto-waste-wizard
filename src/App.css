@@ -10,10 +10,13 @@ header {
   background-image: linear-gradient(to left, #23965E 0%, #1D5A93 100%);
 }
 
-form {
-  padding: 15px 0;
+.container {
   width: 98%;
   margin: 0 auto;
+}
+
+form {
+  padding: 15px 0;
   display: flex;
   align-items: center;
   justify-content: center
@@ -38,4 +41,38 @@ button[type="submit"] {
   color: #fff;
   border: none;
   border-radius: 2px
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  padding: 10px;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.2 ease;
+}
+
+.star-btn:hover {
+  color: rgb(55, 70, 54);
+}
+
+.favorites {
+  background: #F7FEFA;
+}
+
+.favorites-header {
+  color: #23965E;
+  padding: 15px 0;
+}
+
+.favorite {
+  color: #23965E;
 }
