@@ -47,7 +47,7 @@ class App extends Component {
 
   handleSearch(query) {
     const tempQuery = query.replace(/\s/g, '').toLowerCase();
-    const results = this.state.data.filter(element => element.keywords.indexOf(tempQuery) !== -1);
+    const results = this.state.data.filter(element => element.keywords.indexOf(tempQuery) !== -1 || element.title.indexOf(tempQuery) !== -1);
     this.setState({
       search_results: results,
     });
